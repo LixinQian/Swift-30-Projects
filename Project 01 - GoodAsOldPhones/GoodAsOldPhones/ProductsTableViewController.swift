@@ -8,8 +8,8 @@
 import UIKit
 
 class ProductsTableViewController: UITableViewController {
-  private var products: [Product]?
-  private let identifer = "productCell"
+  private var products: [Product]!
+  private let identifier = "productCell"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,11 +44,8 @@ extension ProductsTableViewController {
         return products?.count ?? 0
     }
 
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifer, for: indexPath)
-        guard let products = products else { return cell }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         cell.textLabel?.text = products[indexPath.row].name
 
